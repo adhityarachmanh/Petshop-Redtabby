@@ -4,7 +4,13 @@ import "firebase/auth";
 import "firebase/storage";
 
 var fbConfig = {
-
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 
 firebase.initializeApp(fbConfig);
