@@ -6,10 +6,6 @@ Website Ini Di Buat Dengan React Js Untuk Website Petshop Red Tabby yang Belum M
 ### Link Website Client
 - [Link Website Client](https://petshop-redtabby.web.app)
 
-### Link Website Client
-
-- [Link Website Admin](https://admin-xenna.web.app/login-admin)
-
 
 ## Licensing
 
