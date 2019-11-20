@@ -1,0 +1,31 @@
+@font-face {
+  font-family: shamery;
+  src: url("../fonts/shamery.ttf");
+}
+
+.shamery {
+  font-family: shamery;
+}
+
+@font-face {
+  font-family: GRACETIANS;
+  src: url("../fonts/GRACETIANS.otf");
+}
+.GRACETIANS {
+  font-family: GRACETIANS;
+}
+@font-face {
+    font-family: NIKOLETA;
+    src: url("../fonts/NIKOLETA.otf");
+  }
+  .NIKOLETA {
+    font-family: NIKOLETA;
+  }
+  @font-face {
+    font-family: BOOWIE;
+    src: url("../fonts/BOOWIE.ttf");
+  }
+  .BOOWIE {
+    font-family: BOOWIE;
+  }
+  

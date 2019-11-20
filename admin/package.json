@@ -1,0 +1,77 @@
+{
+  "name": "admin-redtabby",
+  "version": "1.7.0",
+  "description": "Admin",
+  "private": false,
+  "main": "build/index.js",
+  "dependencies": {
+    "@material-ui/core": "4.1.0",
+    "@material-ui/icons": "4.1.0",
+    "chartist": "0.10.1",
+    "classnames": "2.2.6",
+    "history": "4.9.0",
+    "perfect-scrollbar": "1.4.0",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-chartist": "0.13.3",
+    "react-dom": "16.8.6",
+    "react-google-maps": "9.4.5",
+    "react-router-dom": "5.0.1",
+    "react-scripts": "3.0.1",
+    "react-swipeable-views": "0.13.3",
+    "animate.css": "^3.7.2",
+    "aos": "^2.3.4",
+    "firebase": "^6.2.4",
+    "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
+    "react-countdown-now": "^2.1.1",
+    "react-datepicker": "^2.7.0",
+    "react-firebaseui": "^3.1.2",
+    "react-redux": "5.1.1",
+    "react-redux-firebase": "^2.2.6",
+    "redux": "^4.0.1",
+    "redux-firestore": "^0.8.0",
+    "redux-thunk": "^2.3.0",
+    "sweetalert2": "^8.13.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && yarn install && yarn start",
+    "lint:check": "eslint . --ext=js,jsx;  exit 0",
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
+    "build-package": "yarn run build-package-css && babel src --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adhityarachmanh/Petshop-Redtabby/tree/master/admin"
+  },
+  "keywords": [],
+  "author": "Adhitya Rachman Hidayatullah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adhityarachmanh/Petshop-Redtabby/issues"
+  },
+  "homepage": "",
+  "optionalDependencies": {
+    "@types/googlemaps": "3.36.4",
+    "@types/markerclustererplus": "2.1.33",
+    "ajv": "6.10.0",
+    "typescript": "3.5.1"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "prettier": "1.18.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": []
+  }
+}
