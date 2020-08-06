@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/src/config/fbConfig.js
 # production
 /build
 
