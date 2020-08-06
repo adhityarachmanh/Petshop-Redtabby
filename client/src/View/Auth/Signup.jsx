@@ -34,7 +34,7 @@ class Signup extends React.Component {
               <div class="card card-login">
                 <form onSubmit={this.handleSubmit}>
                   <div class="card-header card-header-rose text-center">
-                    <h4 class="card-title">Register</h4>
+                    <h4 class="card-title">SIGN UP</h4>
                   </div>
                   <p class="description text-center">Red Taddy</p>
                   <div class="card-body">

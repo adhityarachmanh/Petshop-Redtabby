@@ -1,5 +1,5 @@
 {
-  "name": "client-redtabby",
+  "name": "xena",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,7 @@
     "redux": "^4.0.1",
     "redux-firestore": "^0.8.0",
     "redux-thunk": "^2.3.0",
-    "sweetalert2": "^8.13.1"
+    "sweetalert2": "^8.19.0"
   },
   "scripts": {
     "start": "react-scripts start",

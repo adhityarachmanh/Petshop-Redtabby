@@ -46,7 +46,6 @@ class ManageAkun extends React.Component {
   }
   render() {
     const { profile, auth, progress } = this.props;
-    console.log(progress);
     if (!auth.uid) return <Redirect to="/login-page" />;
     return (
       <>
@@ -81,11 +80,11 @@ class ManageAkun extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6 ml-auto mr-auto " >
-                    <div class="profile-tabs">
+                <div className="row">
+                  <div className="col-md-6 ml-auto mr-auto " >
+                    <div className="profile-tabs">
                       <ul
-                        class="nav nav-pills nav-pills-icons nav-pills-rose justify-content-center"
+                        className="nav nav-pills nav-pills-icons nav-pills-rose justify-content-center"
                         role="tablist"
                       >
                         {dataTabManageAkun.map((d, i) => {
@@ -121,13 +120,13 @@ class ManageAkun extends React.Component {
                       <div className="container">
                         <div className="row justify-content-center">
                           <div className="col-md-6">
-                            <div class="progress-container text-center">
-                              <span class="progress-badge ">
+                            <div className="progress-container text-center">
+                              <span className="progress-badge ">
                                 {progress.value + "%"}
                               </span>
-                              <div class="progress">
+                              <div className="progress">
                                 <div
-                                  class="progress-bar"
+                                  className="progress-bar"
                                   role="progressbar"
                                   aria-valuenow="25"
                                   aria-valuemin="0"
@@ -145,6 +144,7 @@ class ManageAkun extends React.Component {
                     {dataTabManageAkun.map((d, i) => {
                       return (
                         <Route
+                        key={i}
                           path={`/manage-akun/${d.name
                             .toLowerCase()
                             .replace(/ /g, "-")}`}

@@ -295,20 +295,23 @@ class Grooming extends React.Component {
 
   handleGrooming = () => {
     const { profile } = this.props;
-    const { name, email, phone, message } = this.state;
-    const newName =
-      name !== null && name !== undefined && name !== "" ? name : profile.name;
-    const newEmail =
-      email !== null && email !== undefined && email !== ""
-        ? email
-        : profile.email;
+    const { phone, message } = this.state;
     const newPhone =
       phone !== null && phone !== undefined && phone !== ""
         ? phone
-        : profile.phone;
+        : profile.phone
+        ? profile.phone
+        : "";
     const newMessage =
       phone !== null && message !== undefined && message !== "" ? message : "";
-    if (newMessage === "") {
+
+    if (newPhone === "") {
+      Swal.fire({
+        title: "Please Input Phone",
+        type: "error"
+      });
+      return;
+    } else if (newMessage === "") {
       Swal.fire({
         title: "Please Input Message",
         type: "error"
@@ -316,8 +319,8 @@ class Grooming extends React.Component {
       return;
     }
     const newData = {
-      name: newName,
-      email: newEmail,
+      name: profile.name,
+      email: profile.email,
       phone: newPhone,
       message: newMessage
     };
@@ -643,26 +646,6 @@ class Grooming extends React.Component {
                       </div>
                       <form>
                         <div className="form-group">
-                          <label htmlFor="">Name</label>
-                          <input
-                            id="name"
-                            type="text"
-                            className="form-control"
-                            defaultValue={profile.name}
-                            onChange={this.handleInputChange}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="">Email</label>
-                          <input
-                            id="email"
-                            type="text"
-                            defaultValue={profile.email}
-                            className="form-control"
-                            onChange={this.handleInputChange}
-                          />
-                        </div>
-                        <div className="form-group">
                           <label htmlFor="">Phone Number</label>
                           <input
                             id="phone"
@@ -714,12 +697,14 @@ class Grooming extends React.Component {
                     </p>
                     {this.state.selectTime ? (
                       <p className="text-justify">
-                        Professional Cat Groomer Available in our place or
-                        door-to-door service
+                        Grooming & Mandi Sehat + Shampo Anti Kutu & Jamur
                       </p>
                     ) : (
-                      <p className="text-justify">
-                        Available in our place or door-to-door service
+                      <p className="text-center">
+                        Mandi sehat adalah perawatan memandikan kucing untuk
+                        mencegah masalah dengan penyakit kulit lainnya dengan
+                        menggunakan shampoo khusus untuk menjaga kesehatan bulu
+                        dan kulit agar tetap sehat, lebat dan terawat.
                       </p>
                     )}
                   </div>

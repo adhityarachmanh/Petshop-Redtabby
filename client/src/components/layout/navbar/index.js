@@ -53,7 +53,7 @@ class Navbar extends Component {
     return (
       <nav
         style={{ display: status }}
-        class={`navbar ${color} navbar-expand-lg mb-auto`}
+        className={`navbar ${color} navbar-expand-lg mb-auto`}
         id="sectionsNav"
       >
         <div className="container">

@@ -62,7 +62,7 @@ class Keranjang extends React.Component {
                 cart.map((d, i) => {
                   return <CartItem key={i} data={d} />;
                 })}
-              <li class="divider" />
+              <li className="divider" />
               <li className="">
                 <Link className="btn btn-link btn-sm " to="/cart-page">
                   View Cart
@@ -71,7 +71,7 @@ class Keranjang extends React.Component {
             </>
           ) : (
             <>
-              <div class="container">
+              <div className="container">
                 <img
                   width="100%"
                   src="https://www.supplyvan.com/media/new_images/rsz_empty-cart.png"

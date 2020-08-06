@@ -131,7 +131,7 @@ class OrderPage extends React.Component {
                     </h3>
                     <h3 className="card-title text-center">
                       {" "}
-                      {!myOrder.status ? (
+                      {!myOrder.status &&!myOrder.struk ? (
                         <Countdown
                           onComplete={this.handleEndOrder}
                           daysInHours={true}

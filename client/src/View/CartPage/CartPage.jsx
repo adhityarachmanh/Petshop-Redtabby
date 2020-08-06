@@ -25,17 +25,17 @@ class CartPage extends React.Component {
     return (
       <>
         <div
-          class="page-header header-filter"
+          className="page-header header-filter"
           data-parallax="true"
           style={{
             height: "500px",
             backgroundImage: `url('${CAT_BG}')`
           }}
         >
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <h1 class="title text-capitalize">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6">
+                <h1 className="title text-capitalize">
                   <i className="material-icons">shopping_cart</i>
                   Cart
                 </h1>

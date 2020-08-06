@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { compose } from "C:/Users/User/AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
+import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 
 class NotificationOrder extends React.Component {

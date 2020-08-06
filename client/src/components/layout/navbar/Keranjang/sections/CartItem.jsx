@@ -17,16 +17,16 @@ class CartItem extends React.Component {
     return (
       <li>
     
-          <span class="item">
-            <span class="item-left">
+          <span className="item">
+            <span className="item-left">
               <img width="50" height="50" src={infoShop.image} alt="" />
-              <span class="item-info col-8">
+              <span className="item-info col-8">
                 <span className=" text-truncate">{infoShop.name}</span>
 
                 <span> {infoShop.price ? "IDR " + infoShop.price : null}</span>
               </span>
             </span>
-            <span class="item-right ">
+            <span className="item-right ">
               <span>{data.quantity ? data.quantity + " Item" : null}</span>
             </span>
           </span>

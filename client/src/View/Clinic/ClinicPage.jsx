@@ -6,9 +6,9 @@ import "./clinic.css";
 class ClinicPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { fade: false };
+    this.state = { fade: true };
   }
- 
+
   render() {
     return (
       <div>
@@ -30,7 +30,7 @@ class ClinicPage extends React.Component {
             <div className="section ">
               <div className="row">
                 {" "}
-                <div className="col-md-10 ml-auto mr-auto">
+                <div className="col-md-12 ml-auto mr-auto">
                   <ul
                     className="nav nav-pills nav-pills-info nav-pills-icons justify-content-center"
                     role="tablist"
@@ -43,7 +43,7 @@ class ClinicPage extends React.Component {
                             onAnimationEnd={() =>
                               this.setState({ fade: false })
                             }
-                            className="nav-link"
+                            className={`nav-link ${i === 0 ? "active" : ""}`}
                             href={`#tab-${i}`}
                             role="tab"
                             data-toggle="tab"
@@ -70,28 +70,45 @@ class ClinicPage extends React.Component {
                           } ${i === 0 ? "active" : ""}`}
                           id={`tab-${i}`}
                         >
-                          <div className="row">
-                            <div className="col-md-6 mt-5">
-                              <img width="100%" src={d.content.gambar} alt="" />
+                          {d.content.judul && d.content.text ? (
+                            <div className="row justify-content-center">
+                              <div className="col-md-6 mt-5">
+                                <img
+                                  width="100%"
+                                  src={d.content.gambar}
+                                  alt=""
+                                />
+                              </div>
+                              <div className="col-md-6">
+                                <h3 className="title text-info">
+                                  {d.content.judul}
+                                </h3>
+                                {d.content.text}
+                              </div>
                             </div>
-                            <div className="col-md-6">
-                              <h3 className="title text-info">
-                                {d.content.judul}
-                              </h3>
-                              {d.content.text}
-                             
+                          ) : (
+                            <div className="row justify-content-center">
+                              <img
+                               
+                                src={d.content.gambar}
+                                width="80%"
+                                alt=""
+                              />
                             </div>
-                            
-                          </div>
+                          )}
                         </div>
                       );
                     })}
-                    
                   </div>
                 </div>
               </div>
               <div className="row justify-content-center">
-              <button onClick={()=>this.props.history.push("/contact-us")} className="btn btn-round btn-warning btn-md">Hubungi Kami</button>
+                <button
+                  onClick={() => this.props.history.push("/contact-us")}
+                  className="btn btn-round btn-warning btn-md"
+                >
+                  Hubungi Kami
+                </button>
               </div>
             </div>
           </div>
@@ -103,7 +120,7 @@ class ClinicPage extends React.Component {
 
 const styles = {
   backgroundImage: `url('${BG_CLINIC}')`,
-  height: "600px "
+  height: "600px ",
 };
 
 export default ClinicPage;

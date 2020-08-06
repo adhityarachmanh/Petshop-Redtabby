@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { gasLogout } from "../../../../store/action/authaction";
 import Keranjang from "../Keranjang";
-import { compose } from "C:/Users/User/AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
+import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import NotificationOrder from "../Notification/Notification";
 

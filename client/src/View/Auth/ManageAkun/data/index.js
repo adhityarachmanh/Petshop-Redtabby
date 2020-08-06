@@ -1,6 +1,7 @@
 import Profile from "../sections/Profile";
 import HistoryOrder from "../sections/HistoryOrder";
 import MyGrooming from "../sections/MyGrooming";
+import KartuSehat from "../sections/KartuSehat";
 
 export const dataTabManageAkun = [
   {
@@ -17,5 +18,10 @@ export const dataTabManageAkun = [
     name: "My Grooming",
     icon: "pets",
     component: MyGrooming
+  },
+  {
+    name: "Kartu Sehat",
+    icon: "pets",
+    component: KartuSehat
   }
 ];

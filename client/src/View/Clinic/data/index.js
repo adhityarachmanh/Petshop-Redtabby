@@ -24,8 +24,8 @@ export const dataTabClinic = [
             hewan peliharaan kami.
           </p>
         </>
-      )
-    }
+      ),
+    },
   },
   {
     nama: "Rawat Inap",
@@ -51,8 +51,8 @@ export const dataTabClinic = [
             peliharaan Anda dirawat bahkan setelah jam operasional klinik.
           </p>
         </>
-      )
-    }
+      ),
+    },
   },
   {
     nama: "Fisioterapi",
@@ -82,8 +82,8 @@ export const dataTabClinic = [
             mempercepat penyembuhan luka.
           </p>
         </>
-      )
-    }
+      ),
+    },
   },
   {
     nama: "Perawatan Gigi",
@@ -105,8 +105,8 @@ export const dataTabClinic = [
             kesayangan Anda melalui kesehatan gigi dan mulut yang baik.
           </p>
         </>
-      )
-    }
+      ),
+    },
   },
   {
     nama: "Laboratorium",
@@ -133,8 +133,8 @@ export const dataTabClinic = [
             jamur, Rabies Uji titre, uji Spot Allergen, biopsi jaringan.
           </p>
         </>
-      )
-    }
+      ),
+    },
   },
   {
     nama: "Vaksinasi",
@@ -161,7 +161,14 @@ export const dataTabClinic = [
             jamur, Rabies Uji titre, uji Spot Allergen, biopsi jaringan.
           </p>
         </>
-      )
-    }
-  }
+      ),
+    },
+  },
+  {
+    nama: "Jadwal Dokter",
+    gambar: require("../../../assets/img/clinic/clinic-1.png"),
+    content: {
+      gambar: require("../../../assets/img/clinic/gambar-6.jpg"),
+    },
+  },
 ];

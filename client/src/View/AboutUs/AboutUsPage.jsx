@@ -18,7 +18,7 @@ class AboutUsPage extends React.Component {
             <div className="section">
               <div className="row justify-content-center text-center">
                 <h2 className="title">
-                  History
+                  We Provide Everything You Need For Your Beloved Pet.
                   <hr style={styles.hr} />
                 </h2>
               </div>
@@ -32,22 +32,23 @@ class AboutUsPage extends React.Component {
                 </div>
                 <div className="col-md-6">
                   <p className="text-justify">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Quasi voluptate pariatur, nulla a reiciendis ipsa, officia
-                    voluptatem natus in, ea cumque omnis nesciunt dolor dolores
-                    molestiae corrupti architecto! Cum, perferendis.
+                    We believe all pets have the right to a healthy and happy
+                    life, and through our online services Red Tabby hope to make
+                    this true throughout Indonesia. The relationship between
+                    human and pets have long been established and evolving
+                    within eras.
                   </p>
                   <p className="text-justify">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Quasi voluptate pariatur, nulla a reiciendis ipsa, officia
-                    voluptatem natus in, ea cumque omnis nesciunt dolor dolores
-                    molestiae corrupti architecto! Cum, perferendis.
+                    Many of human have failed to understand the importance of
+                    this relationship thus it affects the treatment of pets
+                    which causes to mistreated, malnourished, and unhappy pets.
+                    Our founder believes “Human can make choices for their life
+                    and also improve their life but animals can’t”.
                   </p>
                   <p className="text-justify">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Quasi voluptate pariatur, nulla a reiciendis ipsa, officia
-                    voluptatem natus in, ea cumque omnis nesciunt dolor dolores
-                    molestiae corrupti architecto! Cum, perferendis.
+                    This inspires us to create an approach that can be
+                    understood by everyone from pet owners to non-pet owners
+                    that can increase human responsibility towards pets.
                   </p>
                 </div>
               </div>

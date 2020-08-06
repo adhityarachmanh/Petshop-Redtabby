@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "xena-58c4b"
+  },
+  "targets": {
+    "xena-58c4b": {
+      "hosting": {
+        "petshop-redtabby": [
+          "petshop-redtabby"
+        ]
+      }
+    }
+  }
+}

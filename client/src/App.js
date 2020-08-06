@@ -18,6 +18,7 @@ import Grooming from "./View/grooming/Grooming";
 import ClinicPage from "./View/Clinic/ClinicPage";
 import ContactUsPage from "./View/ContactUs/ContactUsPage";
 import AboutUsPage from "./View/AboutUs/AboutUsPage";
+import ModuleModal from "./components/modal/ModuleModal";
 
 function App() {
   return (
@@ -37,7 +38,9 @@ function App() {
         <Route path="/order-page/:id" component={OrderPage} />
         <Route path="/Manage-Akun" component={ManageAkun} />
       </>
+      <ModuleModal/>
       <Footer />
+      
     </Router>
   );
 }
