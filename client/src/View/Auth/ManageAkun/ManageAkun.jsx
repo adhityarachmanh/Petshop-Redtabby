@@ -18,7 +18,7 @@ class ManageAkun extends React.Component {
         "aria-label": "Upload your profile picture"
       }
     });
-
+    
     if (file) {
       const reader = new FileReader();
       reader.onload = e => {
@@ -56,7 +56,7 @@ class ManageAkun extends React.Component {
             data-parallax="true"
             style={styles}
           />
-          <div className="main main-raised ">
+          <div className="main main-raised " style={{minHeight:"700px"}}>
             <div className="profile-content ">
               <div className="container">
                 <div className="row ">

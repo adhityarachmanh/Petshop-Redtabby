@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { tambahKartuSehat } from "../../store/action/kartuSehatAction";
+import swal from "sweetalert2/dist/sweetalert2";
 
-export default class KartuSehatModal extends Component {
+class KartuSehatModal extends Component {
   constructor() {
     super();
     this.state = {
       vaksin: [],
+      errors: [],
+      isLoading: false,
     };
   }
   componentDidMount() {
@@ -15,6 +20,26 @@ export default class KartuSehatModal extends Component {
       delete this.state.image;
     });
   }
+  handleSetYear = (e) => {
+    let yearFormat = new RegExp("^[0-9]+$");
+    let getYear = new Date().getFullYear();
+    let inputName = e.target.id;
+    if (!yearFormat.test(e.target.value)) {
+      e.target.value = null;
+      return;
+    } else if (e.target.value > getYear) {
+      e.target.value = null;
+      swal.fire("Error", "Sekarang adalah tahun " + getYear, "error");
+      return;
+    }
+    const vaksin = this.state.vaksin;
+    let vaksinID = parseInt(inputName.split("-")[1]);
+
+    vaksin.filter((e) => e.vaksin === vaksinID)[0].year = parseInt(
+      e.target.value
+    );
+    this.setState({ vaksin });
+  };
   handleChange = (e) => {
     let inputName = e.target.id;
     switch (inputName) {
@@ -26,7 +51,7 @@ export default class KartuSehatModal extends Component {
         );
         inputYear.hidden = !inputYear.hidden;
         let value = {
-          vaksin: e.target.value,
+          vaksin: parseInt(e.target.value),
         };
         if (isChecked) vaksin.push(value);
         else {
@@ -42,20 +67,35 @@ export default class KartuSehatModal extends Component {
         this.setState({ [inputName]: e.target.value });
         break;
     }
-   
   };
-  handleSubmit=(e)=>{
-    const errors=[]
-    const {name,old,image,vaksin} =this.state
-    e.preventDefault()
+  handleSubmit = (e) => {
+    const errors = [];
+    const { name, umur, image, vaksin } = this.state;
+    e.preventDefault();
 
-    if (!name) errors.push("name")
-    if (!old) errors.push("old")
-    if (!image) errors.push("image")
-    if (!image) errors.push("old")
+    if (!name) errors.push("name");
+    if (!umur) errors.push("umur");
+    if (!image) errors.push("image");
 
-
-  }
+    this.setState({ errors, isLoading: true });
+    if (!errors.length) {
+      this.props.tambahKartuSehat({
+        uid: this.props.auth.uid,
+        name,
+        umur,
+        image,
+        vaksin,
+      });
+      this.setState({
+        errors: [],
+        isLoading: false,
+        vaksin: [],
+      });
+      document.getElementById("ks-btn-close").click();
+    } else {
+      swal.fire("Error!", errors.toString() + " harus di isi", "error");
+    }
+  };
   render() {
     return (
       <React.Fragment>
@@ -71,6 +111,7 @@ export default class KartuSehatModal extends Component {
                 <div className="modal-header">
                   <h3 className="modal-title card-title">Tambah Kartu Sehat</h3>
                   <button
+                    id="ks-btn-close"
                     type="button"
                     className="close"
                     data-dismiss="modal"
@@ -79,6 +120,7 @@ export default class KartuSehatModal extends Component {
                     <i className="material-icons">clear</i>
                   </button>
                 </div>
+
                 <div className="modal-body">
                   <div className="row">
                     <div className="col-md-5 ml-auto">
@@ -88,7 +130,9 @@ export default class KartuSehatModal extends Component {
                         </div>
                         <div className="description">
                           <h4 className="info-title">Foto Hewan Peliharaan</h4>
-
+                          {this.state.errors.includes("image") ? (
+                            <p className="text-danger">Image required</p>
+                          ) : null}
                           <div
                             className="fileinput fileinput-new text-center"
                             data-provides="fileinput"
@@ -127,6 +171,7 @@ export default class KartuSehatModal extends Component {
                             <h4 className="info-title">
                               Vaksin yang sudah diberikan
                             </h4>
+                            <p>(optional)</p>
                             {[
                               {
                                 name: "Feline panleukopenia",
@@ -139,7 +184,7 @@ export default class KartuSehatModal extends Component {
                               },
                             ].map((d, i) => {
                               return (
-                                <div key={i} className="form-check">
+                                <div key={i} className="form-check ">
                                   <label className="form-check-label">
                                     <input
                                       className="form-check-input"
@@ -155,10 +200,11 @@ export default class KartuSehatModal extends Component {
                                     <input
                                       hidden
                                       id={`vaksin-${i}`}
+                                      type="tel"
                                       maxLength={4}
-                                      type="text"
                                       className="form-control mt-3"
                                       placeholder="Tahun..."
+                                      onChange={this.handleSetYear}
                                     />
                                   </label>
                                 </div>
@@ -166,22 +212,43 @@ export default class KartuSehatModal extends Component {
                             })}
                           </div>
                           <h4 className="info-title mt-5">
-                            Biodata Hewan Peliharaan
+                            Biodata 
                           </h4>
                           {[
                             {
                               icon: "pets",
                               id: "name",
                               placeholder: "Nama Hewan peliharaan...",
+                              type: "text",
+                              maxLength: 50,
                             },
                             {
                               icon: "pets",
-                              id: "old",
+                              id: "umur",
                               placeholder: "Umur Hewan peliharaan...",
+                              type: "tel",
+                              maxLength: 2,
                             },
                           ].map((d, i) => {
                             return (
-                              <div key={i} className="form-group">
+                              <div
+                                key={i}
+                                className={
+                                  "form-group " +
+                                  this.state.errors.includes(d.id)
+                                    ? "has-danger"
+                                    : null
+                                }
+                              >
+                                {this.state.errors.includes(d.id) ? (
+                                  <label
+                                    for="exampleInput3"
+                                    class="bmd-label-floating"
+                                  >
+                                    Error input
+                                  </label>
+                                ) : null}
+
                                 <div className="input-group">
                                   <div className="input-group-prepend">
                                     <span className="input-group-text">
@@ -189,8 +256,9 @@ export default class KartuSehatModal extends Component {
                                     </span>
                                   </div>
                                   <input
-                                  id={d.id}
-                                    type="text"
+                                    id={d.id}
+                                    type={d.type}
+                                    maxLength={d.maxLength}
                                     className="form-control"
                                     placeholder={d.placeholder}
                                     onChange={this.handleChange}
@@ -202,7 +270,6 @@ export default class KartuSehatModal extends Component {
                         </div>
                         <div className="modal-footer justify-content-center">
                           <button
-                            
                             type="submit"
                             className="btn btn-success btn-round"
                           >
@@ -221,3 +288,15 @@ export default class KartuSehatModal extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  const auth = state.firebase.auth;
+  return {
+    auth,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    tambahKartuSehat: (data) => dispatch(tambahKartuSehat(data)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(KartuSehatModal);
